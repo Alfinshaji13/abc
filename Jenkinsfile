@@ -3,7 +3,7 @@ pipeline{
     tools {
     maven 'maven_3_8_6'
     }
-    sstages {
+    stages {
         stage('Checkout') {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Alfinshaji13/abc']]])
