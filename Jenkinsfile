@@ -2,7 +2,7 @@ pipeline{
     agent any
     tools {
     maven 'maven_3_8_6'
-    scannerHome 'sonarqubeScanner-4.7.0'
+    // scannerHome 'sonarqubeScanner-4.7.0'
     }
     stages {
         stage('Checkout') {
@@ -17,7 +17,7 @@ pipeline{
             }
          }
         stage('SonarQube analysis') {
-//    def scannerHome = tool 'SonarScanner 4.0';
+      def scannerHome = tool 'SonarScanner 4.7.0';
         steps{
         withSonarQubeEnv('sonarqube-9.7.1') { 
         // If you have configured more than one global server connection, you can specify its name
