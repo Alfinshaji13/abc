@@ -21,9 +21,10 @@ pipeline{
         stage('SonarQube analysis') {
         steps{
         withSonarQubeEnv('sonarqube-9.7.1') { 
-        // If you have configured more than one global server connection, you can specify its name
-        bat "${scannerHome}/bin/sonar-scanner"
-        bat "mvn sonar:sonar"
+         bat mvn clean verify sonar:sonar \
+           -Dsonar.projectKey=abcd \
+           -Dsonar.host.url=http://localhost:9000 \
+           -Dsonar.login=sqp_13f3ad16768d553189a0e8098c6d5ee86443604c
     }
         }
         }
