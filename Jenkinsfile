@@ -4,7 +4,7 @@ pipeline{
     maven 'maven_3_8_6'
     // scannerHome 'sonarqubeScanner-4.7.0'
     }
-    env { def scannerHome = tool 'SonarScanner 4.7.0';
+    environment { def scannerHome = tool 'SonarScanner 4.7.0';
                 }
     stages {
         stage('Checkout') {
